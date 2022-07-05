@@ -23,10 +23,10 @@ def main(config_path):
     config = read_yaml(config_path)
     source_data_url = config["source_data_url"]
 
-    local_data_dir = config["source_download_dirs"]["data_dir"]
+    local_data_dir = config["source_download_dir"]["data_dir"]
     create_directories([local_data_dir])
 
-    data_filename = config["source_download_dirs"]["data_file"]
+    data_filename = config["source_download_dir"]["data_file"]
     local_data_filepath = os.path.join(local_data_dir, data_filename)
 
     logging.info("Download started")

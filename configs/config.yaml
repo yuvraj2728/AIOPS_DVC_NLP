@@ -12,7 +12,7 @@ artifacts:
   MODEL_NAME: model.pkl
 
 source_data_url: https://drive.google.com/file/d/1nqlr1tP4uHp-LVO6mIhwQOKRCJEhqk6r/view?usp=sharing
-source_download_dirs:
+source_download_dir:
   data_dir: data
   data_file: data.xml
 local_data_dirs:
