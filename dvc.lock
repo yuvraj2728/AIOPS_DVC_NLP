@@ -16,3 +16,32 @@ stages:
     - path: data/data.xml
       md5: 3e70cd2a2ee38df8c114dfc375f3acdb
       size: 66550
+  prepare_data:
+    cmd: python src/stage_01_prepare.py --config=configs/config.yaml --params=params.yaml
+    deps:
+    - path: configs/config.yaml
+      md5: 98f266490f00c7c71407649ae8c05172
+      size: 393
+    - path: data/data.xml
+      md5: a304afb96060aad90176268345e10355
+      size: 37891850
+    - path: src/stage_01_prepare.py
+      md5: 594143c29c5b4d4f895548bee96da89a
+      size: 2056
+    - path: src/utils/common.py
+      md5: d162961d817182441383bdb0e674e685
+      size: 675
+    - path: src/utils/data_mgmt.py
+      md5: 0cfcb66d3adef8739f6ea7457665a177
+      size: 862
+    params:
+      params.yaml:
+        prepare.seed: 2021
+        prepare.split: 0.3
+    outs:
+    - path: artifacts/prepared/test.tsv
+      md5: a0bb558cc0e08269228e02fb57edbdc0
+      size: 7248035
+    - path: artifacts/prepared/train.tsv
+      md5: 3514ce5f1b8c8d976c178e0ad2ae1e78
+      size: 16638284
