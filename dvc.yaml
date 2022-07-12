@@ -1,10 +1,16 @@
 # add stages here 
 stages:
-  get_data:
-    cmd: python src/stage_01_get_data.py --config=configs/config.yaml
+  prepare_data:
+    cmd: python src/stage_01_prepare.py --config=configs/config.yaml --params=params.yaml
     deps:
-    - src/stage_01_get_data.py
-    - src/utils/common.py
-    - configs/config.yaml
+      - src/stage_01_prepare.py
+      - data/data.xml
+      - src/utils/common.py
+      - src/utils/data_mgmt.py
+      - configs/config.yaml
+    params:
+      - prepare.seed
+      - prepare.split
     outs:
-    - data/data.xml
+      - artifacts/prepared/train.tsv
+      - artifacts/prepared/test.tsv
